@@ -11,19 +11,15 @@ Then create a new module called main.py. Gets an input from the user using "Ente
 
 import random
 def rollDice(n):
-     dice=[0,0,0,0,0,0]
-     per=[0,0,0,0,0,0]
+     dice=[0,0,0,0,0,0]          # dices in order, [1,2,3,4,5,6] .we will only add number of rounds
+     Per=[]                      #list of percentages
      for i in range(n):
          hand = random.randint(1,6)
          for x in range (1,7):
-            if hand==x:
-              dice[x-1]+=1
-              per[x-1]=("{:.2f}".format((dice[x-1]*100/n)))
-     Per=[]
+            if hand==x:           #current dice will be added in list of dice(only +1 per round)
+              dice[x-1]+=1 
      for i in range(6):
-         current=(dice[i]*100/n)#generates percentages for (1,6) 
-         Per.append(current)    
+         current=(dice[i]*100/n)  #generates percentages for (1,6) in list(dice)
+         Per.append(current)      #and add list(Per)
   
-     # per=[("{:.2f}".format((dice[0]*100/n))),("{:.2f}".format((dice[1]*100/n))),("{:.2f}".format((dice[2]*100/n)))
-     #      ,("{:.2f}".format((dice[3]*100/n))),("{:.2f}".format((dice[4]*100/n))),("{:.2f}".format((dice[5]*100/n)))]
-     return per
+     return Per
